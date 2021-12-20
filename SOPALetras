@@ -1,0 +1,112 @@
+using System;
+
+namespace SopaLetras
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string palabra1 = "PAGINA";
+            string palabra1_1 = "";
+            string palabra2 = "USB";
+            string palabra2_1 = "";
+            string palabra3 = "ASTRO";
+            string palabra3_1 = "";
+            string palabra4 = "SQL";
+            string palabra4_1 = "";
+            bool prueba = false;
+            int contador = 0;
+            string palabra_u = "";
+            bool p1 = false;
+            bool p2 = false;
+            bool p3 = false;
+            bool p4 = false;
+            string palabra_a = "";
+            string palabra_b = "";
+            string palabra_c = "";
+            string palabra_d = "";
+            bool intentos = true;
+            //int reinicio = 0;
+
+
+            
+            do
+            {
+                Console.WriteLine("Resolver esta sopa de letras, " +
+                    "hay 4 palabras relacionadas con la astronomia e informática");
+                do
+                {
+                    //Console.WriteLine("{0}º repetición", reinicio);
+                    Console.Write("|"); Console.Write("-------------------------"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("W E P P A G I N A P R B Ç"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("F V V P E E P R V M S P A"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("U P I O V S R B R U O R M"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("E A W W X D E R X F I A P"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("S Q S O N M Y I Z V J H X"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("L I G T Q C E H Ñ P G A U"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("A Q S Z R V L M E F I P W"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("E A A S P O R Q X D P A Ñ"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("Q P O W R P E F S H S A Z"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("M Ñ Q W N E T F L I X Q E"); Console.WriteLine("|");
+                    Console.Write("|"); Console.Write("-------------------------"); Console.WriteLine("|");
+                    Console.WriteLine("Intento nº {0}", contador);
+                    Console.WriteLine("Palabras acertadas: {0} {1} {2} {3}", palabra_a, palabra_b, palabra_c, palabra_d);
+                    Console.WriteLine("Escribe una palabra");
+                    palabra_u = Console.ReadLine();
+                    palabra_u = palabra_u.ToUpper();
+                    
+                    switch (palabra_u)
+                    {
+                        case "PAGINA":
+                            Console.WriteLine("Has acertado la palabra {0}", palabra1);
+                            p1 = true; palabra_a = palabra_u;
+                            break;
+                        case "USB":
+                            Console.WriteLine("Has acertado la palabra {0}", palabra2);
+                            p2 = true; palabra_b = palabra_u;
+                            break;
+                        case "ASTRO":
+                            Console.WriteLine("Has acertado la palabra {0}", palabra3);
+                            p3 = true; palabra_c = palabra_u;
+                            break;
+                        case "SQL":
+                            Console.WriteLine("Has acertado la palabra {0}", palabra4);
+                            p4 = true; palabra_d = palabra_u;
+                            break;
+                        default:
+                            contador++;
+                            break;
+                    }
+                    if (p1 != true || p2 != true || p3 != true || p4 != true)
+                    {
+                        Console.WriteLine("Intentalo de nuevo");
+                        if (contador == 6)
+                        {
+                            intentos = false;
+                            //reinicio++;
+                            Console.WriteLine("Se acabaron tus oportunidades");
+                            contador = 0;
+                            goto exit;
+                        }
+                    }
+                    Console.Clear();
+                } while (intentos == false);                
+            } while (p1 != true || p2 != true || p3 != true || p4 != true || intentos != true);
+            exit:
+            if (intentos == false)
+            {
+                Console.Clear();
+                Console.WriteLine("Se acabaron tus oportunidades");
+            }
+            if (p1 == true && p2 == true && p3 == true && p4 == true)
+            {
+
+                Console.WriteLine("¡¡ENHORABUENA!!");
+                Console.WriteLine("Apunta la primera letra de cada palabra, te hará falta :)");
+            } 
+            
+
+            
+        }
+    }
+} 
